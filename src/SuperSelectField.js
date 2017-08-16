@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import { findDOMNode } from 'react-dom'
 import InfiniteScroller from 'react-infinite'
 import Popover from 'material-ui/Popover/Popover'
@@ -581,12 +581,12 @@ class SelectField extends Component {
           >
             {menuItems.length
               ? <InfiniteScroller
-                  elementHeight={elementHeight}
-                  containerHeight={containerHeight}
-                  styles={{ scrollableStyle }}
-                >
-                  {menuItems}
-                </InfiniteScroller>
+                elementHeight={elementHeight}
+                containerHeight={containerHeight}
+                styles={{ scrollableStyle }}
+              >
+                {menuItems}
+              </InfiniteScroller>
               : <ListItem primaryText={noMatchFound} style={{ cursor: 'default', padding: '10px 16px' }} disabled />
             }
           </div>
