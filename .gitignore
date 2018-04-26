@@ -7,10 +7,13 @@ node_modules
 coverage
 
 # production
-build
+demo/dist
+es
+lib
+umd
 
 # misc
 .idea
 .DS_Store
 .env
-npm-debug.log
+*.log

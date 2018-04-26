@@ -1,97 +1,78 @@
 {
   "name": "material-ui-superselectfield",
-  "version": "1.5.6",
+  "version": "1.9.2",
   "description": "original Material-UI's SelectField component enhanced with autocompletion, multiselection, custom renderers, and infinite loading.",
-  "private": false,
+  "keywords": [
+    "react-component",
+    "material-ui",
+    "autocomplete",
+    "select",
+    "dropdown",
+    "NWB",
+    "es2017"
+  ],
   "author": "Raphaël Morineau <raphael.morineau@gmail.com>",
+  "contributors": [
+    "Tarik Huber <huber.tarik@gmail.com>",
+    "Maximilian Pichler <maximilian.pichler97@gmail.com>"
+  ],
+  "homepage": "https://sharlaan.github.io/material-ui-superselectfield",
   "license": "MIT",
+  "private": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/Sharlaan/material-ui-superselectfield.git"
   },
-  "homepage": "https://sharlaan.github.io/material-ui-superselectfield",
   "engines": {
-    "node": ">=6"
+    "node": ">=7"
   },
-  "main": "lib/SuperSelectField.js",
-  "dependencies": {
-    "prop-types": "^15.5.10",
-    "react-infinite": "^0.12.1"
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && nwb clean-demo",
+    "fix": "yarn lint --fix",
+    "format": "prettier-eslint --write \"src/**/*@(.css|.js)\" \"demo/src/**/*@(.css|.js)\"",
+    "lint": "eslint src demo/src",
+    "precommit": "yarn fix && lint-staged",
+    "prepush": "yarn test:coverage",
+    "start": "nwb serve-react-demo",
+    "test": "nwb test-react",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server"
   },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^7.2.3",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-entries": "^1.0.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.5.1",
-    "enzyme": "^2.8.2",
-    "flag-icon-css": "^2.8.0",
-    "gh-pages": "^1.0.0",
-    "material-ui": "^0.19.0",
-    "react": "^15.5.4",
-    "react-addons-test-utils": "^15.5.1",
-    "react-dom": "^15.5.4",
-    "react-router-dom": "^4.1.1",
-    "react-scripts": "^1.0.7",
-    "standard": "^10.0.2"
-  },
-  "peerDependencies": {
-    "material-ui": ">= 0.19 < 1",
-    "react": "^15.x",
-    "react-dom": "^15.x"
-  },
-  "babel": {
-    "plugins": [
-      "transform-class-properties",
-      "transform-object-rest-spread",
-      "transform-object-entries"
-    ],
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "browsers": [
-              "last 2 versions",
-              "> 3%",
-              "safari >= 8"
-            ]
-          },
-          "modules": "commonjs",
-          "debug": false
-        }
-      ],
-      "react"
+  "lint-staged": {
+    "*.{js,css}": [
+      "yarn format",
+      "git add"
     ]
   },
-  "standard": {
-    "parser": "babel-eslint"
+  "dependencies": {
+    "react-infinite": "^0.13.0"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "standard"
-    ],
-    "parser": "babel-eslint",
-    "rules": {
-      "camelcase": "off",
-      "brace-style": "off",
-      "no-trailing-spaces": "off",
-      "no-multiple-empty-lines": "off",
-      "no-unused-vars": "warn"
-    }
+  "peerDependencies": {
+    "material-ui": ">= 0.17 < 1",
+    "react": "15.x || 16.x",
+    "react-dom": "15.x || 16.x"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "buildLib": "babel src/SuperSelectField.js -o lib/SuperSelectField.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "lint": "eslint src",
-    "test": "react-scripts test --env=jsdom --coverage",
-    "release": "npm run deploy  &&  npm run buildLib  &&  npm publish",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint-config-sharlaan": "^2.3.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.4",
+    "material-ui": "^0.20.0",
+    "nwb": "^0.22.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2"
   }
 }
